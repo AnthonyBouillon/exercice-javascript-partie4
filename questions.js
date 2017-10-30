@@ -15,8 +15,7 @@ var remplaceECar = function (texte) {
 }
 // concatène les chaines de caractères du texte1 et texte2
 var concatString = function (texte1, texte2) {
-    concatString = texte1 + texte2;
-    return concatString;
+    return texte1.concat(texte2);
 }
 //Affiche le 5ème caractère de la chaine ( 1 par 1)
 var afficherCar5 = function (texte) {
@@ -46,7 +45,7 @@ var SupprEspaceString = function (texte) {
 //Afficher true si le parametre d'entrée de la fonction est de type string
 var IsString = function (texte) {
   //typeof = vérifié son type ( chaine ou autre) donc si texte est égale a 'string ' donc une chaine alors retourn true
-    IsString = typeof('texte') === 'string';
+    IsString = typeof texte == 'string';
     return IsString;
 }
 // Afficher l'extension du fichier
@@ -62,13 +61,11 @@ var NombreEspaceString = function (texte) {
 // Inverser la chaine de caractère
 var InverseString = function (texte) {
   //Tu sépare, tu mélange et tu join les deux morceaux
-    InverseString = texte.split('').reverse('').join('');
+    InverseString = texte.split('').reverse().join('');
     return InverseString;
 }
 
-/**
- * Exercices sur les nombres et les caluls mathématiques
- */
+/*Exercices sur les nombres et les caluls mathématiques*/
   //Calculer la puissance d'un nombre par rapport à un autre (x à la puissance y)
 var calculPuissance = function (x, y) {
     calculPuissance = Math.pow(x, y)
@@ -87,6 +84,7 @@ var valeurAbsolueArray = function (array) {
 //Calculer la surface d'un cercle en fonction de son rayon. L'arondir à l'entier le plus proche
 var sufaceCercle = function (rayon) {
     var calcul = (rayon * rayon) * Math.PI;
+    // arrondir à l'entier le plus proche
     var result = Math.round(calcul);
     return result;
 }
@@ -97,7 +95,8 @@ var hypothenuse = function (ab, ac) {
 }
 //Calculer l'Imc
 var calculIMC = function (poids, taille) {
-  var calcul = poids / (taille * taille);
+  var calcul = poids / Math.pow(taille, 2);
+  // prendre deux chiffre après la virgule
   var calcul = calcul.toFixed(2);
   var result = parseFloat(calcul);
     return result;
